@@ -54,4 +54,22 @@ public class CourseBookingApplicationTests {
 		assertEquals(3,result.size());
 	}
 
+	@Test
+	public void getCustomerByTownAndCourse(){
+		List<Customer> result = customerRepository.getCustomerByTownAndCourse("Huddersfield",2L);
+		assertEquals(1,result.size());
+	}
+
+	@Test
+	public void getCustomerByTownAndCourseOver30(){
+		List<Customer> result = customerRepository.getCustomerByTownAndCourseOverAge("Huddersfield",3L, 30);
+		assertEquals(1,result.size());
+	}
+
+	@Test
+	public void getCustomerByTownAndCourseOver40(){
+		List<Customer> result = customerRepository.getCustomerByTownAndCourseOverAge("Huddersfield",3L,40);
+		assertEquals(0,result.size());
+	}
+
 }
